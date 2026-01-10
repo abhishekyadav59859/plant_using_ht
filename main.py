@@ -246,6 +246,12 @@ async def predict(file: UploadFile = File(...)):
             "cure": "Error"
         })
     
+
+@app.get("/health")
+async def health_check():
+    # return JSONResponse(content={"status": "ok"})
+    return "ok"
+
     
 # Serve static files (your frontend)
 # app.mount("/templates", StaticFiles(directory="templates"), name="templates")
