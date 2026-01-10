@@ -180,10 +180,7 @@ async def load_model():
     model = tf.keras.models.load_model(MODEL_PATH)
     print("Model loaded successfully")
 
-@app.get("/health")
-async def health_check():
-    # return JSONResponse(content={"status": "ok"})
-    return "ok"
+
     
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
@@ -218,6 +215,10 @@ async def home(request: Request):
 
 
 
+@app.get("/health")
+def health_check():
+    # return JSONResponse(content={"status": "ok"})
+    return "ok"
 
 @app.post("/predict")
 async def predict(file: UploadFile = File(...)):
