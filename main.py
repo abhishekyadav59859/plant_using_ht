@@ -140,12 +140,16 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-url = "https://drive.google.com/uc?id=1Ms1HkwFo7im2Yh6V9Hn90jE_qERJl96y"
-output = "plant_disease_model.h5"
-gdown.download(url, output, quiet=False)
-# Load model
-model = tf.keras.models.load_model("plant_disease_model.h5")
+# -------------------------
+# Globals (loaded on startup)
+# -------------------------
+MODEL_PATH = "plant_disease_model.h5"
+MODEL_URL = "https://drive.google.com/uc?id=1Ms1HkwFo7im2Yh6V9Hn90jE_qERJl96y"
 
+# gdown.download(url, output, quiet=False)
+# Load model
+# model = tf.keras.models.load_model("plant_disease_model.h5")
+model = None
 class_names = [
     'Apple___Apple_scab', 'Apple___Black_rot', 'Apple___Cedar_apple_rust', 'Apple___healthy',
     'Blueberry___healthy', 'Cherry_(including_sour)___Powdery_mildew', 'Cherry_(including_sour)___healthy',
@@ -162,7 +166,25 @@ class_names = [
     'Tomato___healthy'
 ]
 
+# -------------------------
+# Startup event (CRITICAL)
+# -------------------------
+@app.on_event("startup")
+async def load_model():
+    global model
+    if not os.path.exists(MODEL_PATH):
+        print("Downloading model...")
+        gdown.download(MODEL_URL, MODEL_PATH, quiet=False)
 
+    print("Loading model...")
+    model = tf.keras.models.load_model(MODEL_PATH)
+    print("Model loaded successfully")
+
+@app.get("/health")
+async def health_check():
+    # return JSONResponse(content={"status": "ok"})
+    return "ok"
+    
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
@@ -245,12 +267,6 @@ async def predict(file: UploadFile = File(...)):
             "confidence": 0,
             "cure": "Error"
         })
-    
-
-@app.get("/health")
-async def health_check():
-    # return JSONResponse(content={"status": "ok"})
-    return "ok"
 
     
 # Serve static files (your frontend)
