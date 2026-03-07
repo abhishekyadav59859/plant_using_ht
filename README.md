@@ -7,7 +7,7 @@ Welcome to the **Plant Disease Prediction App**, an AI-powered tool to detect pl
 
 👉 [https://plant-using-ht.onrender.com](https://plant-using-ht.onrender.com)
 
-> ⚠️ **Please note:** This project is hosted on **Render's free tier**, so it may take a few seconds to load **if it hasn’t been accessed in the past 15 minutes**.  
+> ⚠️ **Please note:** This project is hosted on **Render's free tier**, so it may take a few seconds to load **if it hasn’t been accessed in the past 15 minutes**.   
 > As a student, I currently cannot afford the paid Render plan. Thank you for your patience and support!
 
 ---
