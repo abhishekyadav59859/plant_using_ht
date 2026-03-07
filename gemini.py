@@ -11,7 +11,7 @@
 #         response = gemini_model.generate_content(prompt)
 #         return response.text.strip()
 #     except Exception as e:
-#         return f" Gemini error: {e}"
+#         return f"❌ Gemini error: {e}"
 
 # #emini_model = genai.GenerativeModel("gemini-1.5-flash")
 
@@ -34,7 +34,7 @@ def get_gemini_response(prompt):
         response = gemini_model.generate_content(prompt)
         return response.text.strip()
     except Exception as e:
-        return f" Gemini error: {e}"
+        return f"❌ Gemini error: {e}"
 
 def get_cure(disease_name):
     """Returns cure suggestion for a disease using Gemini."""
