@@ -83,9 +83,9 @@ Built with ❤️ as part of a student innovation journey. Inspired by a convers
 ## 🙌 Support & Contact
 
 Feel free to reach out if you'd like to contribute, share feedback, or showcase this project :
-- GitHub: [https://github.com/Dipukumar1997](https://github.com/Dipukumar1997)
-- Email: [dk95074450@gmail.com](mailto:dk95074450@gmail.com)
-- LinkedIn: [LinkedIn Profile](https://www.linkedin.com/in/dipu-kumar-450026334/)
+- GitHub: [https://github.com/abhishekyadav59859](https://github.com/abhishekyadav59859)
+- Email: [abhishekyadav59859@gmail.com](mailto:abhishekyadav59859@gmail.com)
+- LinkedIn: [LinkedIn Profile](https://in.linkedin.com/in/abhishekyadav59859)
 
 
 💚 *Let’s make agriculture smarter — one leaf at a time.*
